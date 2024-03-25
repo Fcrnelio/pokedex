@@ -1,14 +1,10 @@
 /*
-Funcion asincrona  para traer los datos de pokemon por su nombre, para poder usar las promesas con await, 
-await me ayuda a resolver una promesa y obtener su valor directamente. 
-
-getPokemonData guarda una funcion flecha, se elige la funcion flecha porque es el estandar moderno. 
+Funcion asincrona  para traer los datos de pokemon por su nombre.
 */
 const getPokemonsData = async (name) => {
   let data = {};
   try {
     /* 
-    fetch es una funcion global para hacer llamados al servidor. 
     uso fetch para traer los datos del pokemon desde la poke api, fectch me regresa una promesa dentro de 
     una promesa y extraigo los valores haciendo uso de await, await y async se usan juntos para poder 
     resolver promesas y al final formateo la respuesta del servidor a formato json
@@ -28,7 +24,7 @@ const getPokemonsData = async (name) => {
 const fetchPokemons = async () => {
   /* fetchPokemons es una funcion asyncrona que nos ayuda a traer la lista completa de los pokemones
   y ademas que manda a llamar los datos de cada pokemon haciendo uso de la funcion getPokemonData, 
-  primero se hace un fecht donde se trae la lista completa de los pokemones, una vez que se tiene la 
+  primero se hace un fetch donde se trae la lista completa de los pokemones, una vez que se tiene la 
   lista completa de los pokemones, mando a llamar los datos de cada pokemon. 
   
   para poder hacer el llamado de todos los pokemones utilizo Promise.all (promise.all me permite ejecutar
@@ -117,15 +113,12 @@ const htmlForCard = `
 
 
  /*
- Esta funcion nos sirve para saber si un pokemon tiene su imagen y si no la tiene ponerle un place holder 
+ Esta funcion sirve para saber si un pokemon tiene su imagen y si no la tiene ponerle un place holder 
  para que no se vea vacia la tarjeta, utilice uno de placerholder.com.
 
  utilice el operador optional chaining para validar si tenia su imagen, que valida si una llave existe
- o no, si no, retorna falso, cuando la llave no existe con el operador || or retorna el place holder.
-
- Esta funcion tiene un return implicito es una propiedad de las arrow funtion
-  (que esta ahi pero no se ve) ya que es de una sola linea de codigo.
- */
+ o no, si no, retorna falso, cuando la llave no existe con el operador || or retorna el place holder. */
+ 
 const getPokemonIMG = (pokemon) =>
   pokemon?.extra_data?.sprites?.front_default || "https://placehold.co/304x304";
 
